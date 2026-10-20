@@ -1,5 +1,5 @@
 // ✅ Replace this with your actual VirusTotal API key
-const API_KEY = "1edb10b06405c26a631dbeadfe84cb24e80b6629a8a9d2e50b254465327eb4f6";
+const API_KEY = "enter_your_virustotal_api_key_here";
 
 // ✅ On extension install
 chrome.runtime.onInstalled.addListener(() => {
