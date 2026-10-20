@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title> Web Monitor</title>
+  <style>
+    body { font-family: Arial, sans-serif;
+       margin: 10px;
+       }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .close-btn {
+      font-weight: bold;
+      color: #888;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .alert { margin: 5px 0; 
+      padding: 6px; 
+      border: 1px solid #ccc;
+       border-radius: 4px; }
+
+    .type { font-weight: bold; }
+    .url { color: #555;
+       font-size: 12px; }
+
+    .time { color: #999; 
+      font-size: 11px; }
+
+    h1 { font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>Security Monitor</h1>
+  <div id="alerts" class="alert-container"></div>
+
+  <script src="popup.js"></script> 
+  <p>Status: <strong>Active</strong></p>
+</body>
+</html>

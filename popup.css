@@ -1,0 +1,38 @@
+body {
+  width: 300px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+}
+
+.alert-container {
+  max-height: 250px; /* Adjust this to fit 5 alerts */
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.alert {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.type {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.url {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.time {
+  font-size: 0.75rem;
+  color: #888;
+}
+.alert.malicious {
+  border-left: 4px solid #f44336; /* Red for malicious */
+}
