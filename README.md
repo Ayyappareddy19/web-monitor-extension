@@ -232,15 +232,109 @@ Then:
 
 ## 🧪 Testing
 
-C:\Users\Dell\OneDrive\Desktop\web_monitor>git push
-To https://github.com/Ayyappareddy19/web-monitor-extension.git
- ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://github.com/Ayyappareddy19/web-monitor-extension.git'
-hint: Updates were rejected because the remote contains work that you do not
-hint: have locally. This is usually caused by another repository pushing to
-hint: the same ref. If you want to integrate the remote changes, use
-hint: 'git pull' before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+This section contains the test cases and testing resources used to validate the Web Monitor extension.
+
+> ⚠️ Use these resources only for authorized security testing. Do not intentionally browse or submit real malicious URLs from a normal browsing session.
+
+### 1. HTTP / Insecure Form Testing
+
+**Purpose:** Test whether the extension detects forms submitted over plain HTTP.
+
+Example:
+
+```text
+http://example.com/login
+```
+
+Expected behavior:
+
+```text
+⚠️ Insecure form detected
+```
+
+The extension should generate an `insecure_form` alert containing:
+
+- Alert type
+- Current page URL
+- Timestamp
+
+### 2. HTTPS Testing
+
+**Purpose:** Verify that HTTPS pages are not incorrectly reported as insecure forms when their form actions also use HTTPS.
+
+Example:
+
+```text
+https://example.com/
+```
+
+Expected behavior:
+
+```text
+No insecure-form alert
+```
+
+### 3. VirusTotal URL Scanning
+
+**Purpose:** Verify that the background service worker can:
+
+1. Detect when a supported tab finishes loading.
+2. Submit the URL to VirusTotal.
+3. Retrieve the analysis result.
+4. Read malicious/suspicious statistics.
+5. Generate an alert when appropriate.
+
+The VirusTotal integration is implemented in:
+
+```text
+background.js
+```
+
+### 4. Benign URL Testing
+
+Use ordinary, known-benign websites to verify that the extension does not generate false malicious alerts.
+
+Examples:
+
+```text
+https://example.com/
+https://www.google.com/
+https://www.wikipedia.org/
+```
+
+Expected behavior:
+
+```text
+No malicious URL alert
+```
+
+> VirusTotal results can change over time. The extension should treat the returned result as a security signal rather than absolute proof that a URL is safe.
+
+### 5. Security-Test Resources
+
+For malicious/suspicious URL testing, use dedicated security-testing resources and controlled lab environments rather than intentionally browsing real malicious infrastructure.
+
+Recommended sources:
+
+- VirusTotal documentation and test resources
+- OWASP testing resources
+- Your own local security-lab test pages
+- Isolated virtual machines
+
+### 6. Test Checklist
+
+| Test | Expected Result | Status |
+|---|---|---|
+| Extension loads | Extension appears in browser | ⬜ |
+| HTTPS page | Page loads normally | ⬜ |
+| HTTP form | Insecure-form alert | ⬜ |
+| Alert storage | Alert saved locally | ⬜ |
+| Popup | Alert appears in popup | ⬜ |
+| Timestamp | Alert contains timestamp | ⬜ |
+| Benign URL | No malicious alert | ⬜ |
+| VirusTotal scan | Analysis request succeeds | ⬜ |
+| Suspicious result | Alert generated when returned | ⬜ |
+| Malicious result | Warning notification generated | ⬜ |
 
 ## 🔐 Security Considerations
 
