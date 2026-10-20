@@ -430,7 +430,7 @@ This project provides hands-on experience with:
 
 B.Tech — Computer Science and Engineering (Cyber Security)
 
-GitHub: `https://github.com/YOUR-USERNAME`
+GitHub: `https://github.com/Ayyappareddy19`
 
 ---
 
