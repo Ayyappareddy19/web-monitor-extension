@@ -232,37 +232,15 @@ Then:
 
 ## 🧪 Testing
 
-### Test insecure form detection
-
-Use a test page containing an HTTP form:
-
-```html
-<form action="http://example.com/login" method="post">
-    <input type="text" name="username">
-    <input type="password" name="password">
-    <button type="submit">Login</button>
-</form>
-```
-
-The extension should identify the HTTP form and create an alert.
-
-### Test alert storage
-
-Open the extension popup after an alert is generated.
-
-The alert should contain:
-
-```text
-Alert type
-URL
-Timestamp
-```
-
-### Test VirusTotal scanning
-
-Load an HTTP/HTTPS page while the extension is running and check the service worker console for the URL scanning process.
-
-Use only URLs that you are authorized to test.
+C:\Users\Dell\OneDrive\Desktop\web_monitor>git push
+To https://github.com/Ayyappareddy19/web-monitor-extension.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/Ayyappareddy19/web-monitor-extension.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 ## 🔐 Security Considerations
 
